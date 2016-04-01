@@ -10,6 +10,21 @@ use Bosnadev\Database\Schema\Blueprint;
 class PostgresGrammar extends \Illuminate\Database\Schema\Grammars\PostgresGrammar
 {
     /**
+     * Get the doctrine column type.
+     *
+     * @param  string $type
+     * @return \Doctrine\DBAL\Types\Type
+     */
+    protected function getDoctrineColumnType($type)
+    {
+        if($type === 'uuid') {
+            $type = 'guid';
+        }
+
+        parent::getDoctrineColumnType($type);
+    }
+
+    /**
      * Create the column definition for a character type.
      *
      * @param Fluent $column
