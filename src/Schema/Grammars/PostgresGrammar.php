@@ -21,7 +21,7 @@ class PostgresGrammar extends \Illuminate\Database\Schema\Grammars\PostgresGramm
             $type = 'guid';
         }
 
-        parent::getDoctrineColumnType($type);
+        return parent::getDoctrineColumnType($type);
     }
 
     /**
